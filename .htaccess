@@ -1,0 +1,20 @@
+# روشن کردن موتور بازنویسی لینک‌ها
+RewriteEngine On
+
+# تنظیم صفحه پیش‌فرض روی index.php
+DirectoryIndex index.php
+
+# جلوگیری از نمایش لیست فایل‌های پوشه (امنیت)
+Options -Indexes
+
+# اجازه دسترسی به تمام فایل‌های PHP, CSS, JS, Images
+<FilesMatch "\.(php|css|js|jpg|jpeg|png|gif|ico)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# جلوگیری از دسترسی به فایل‌های حساس
+<FilesMatch "^\.ht">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
